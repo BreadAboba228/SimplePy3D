@@ -1,5 +1,6 @@
 # SimplePy3D 
-
+[[exam_custom_figura.png]]
+[[example_cube.gif]]
 
 ---
 
