@@ -1,6 +1,6 @@
 # SimplePy3D 
-[[exam_custom_figura.png]]
-[[example_cube.gif]]
+[Exam custom figura](https://github.com/BreadAboba228/SimplePy3D/blob/master/docs/exam_custom_figura.png)
+[example_cube](https://github.com/BreadAboba228/SimplePy3D/blob/master/docs/example_cube.gif)
 
 ---
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 ## 🔧 API Reference
 
 ### Engine Configuration
-**`from engine.engine`**
+**`from engine.engine import Engine`**
 #### Paremeters
 
 | Parameter  | Default     | Description                            |
