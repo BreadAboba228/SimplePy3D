@@ -1,6 +1,6 @@
 # SimplePy3D 
-[Exam custom figura](https://github.com/BreadAboba228/SimplePy3D/blob/master/docs/exam_custom_figura.png)
-[example_cube](https://github.com/BreadAboba228/SimplePy3D/blob/master/docs/example_cube.gif)
+![Exam custom figura](https://github.com/BreadAboba228/SimplePy3D/blob/master/docs/exam_custom_figura.png)
+![example_cube](https://github.com/BreadAboba228/SimplePy3D/blob/master/docs/example_cube.gif)
 
 ---
 
