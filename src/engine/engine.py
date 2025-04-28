@@ -1,4 +1,5 @@
 import time
+from core.axis import Axis
 from core.figura import Figura
 from core.point3d import Point3D
 from engine.interface import Interface
@@ -11,8 +12,8 @@ class Engine:
                 width: int=80,
                 height: int=30,
                 interface: Interface=Interface(),
-                angle: float=2) -> None:
-        self._angle = angle
+                angles: dict[Axis, float]={Axis.X: 2, Axis.Y: 2, Axis.Z: 2}) -> None:
+        self._angles = angles
         self._tick: float = 1 / frame_rate
         self.width = width
         self.height = height
@@ -64,18 +65,18 @@ class Engine:
                 error += delta_x
                 y1 += step_y
 
-    def render_frame(self, figura: Figura) -> list[Point3D]:
+    def render_frame(self, figura: Figura) -> None:
 
             Buffer = [row.copy() for row in self._clear_buffer]
 
             # rotation of each point (I'll change it later)
-            Rotated = [vertex.rotate_all(self._angle, figura.center) for vertex in figura.vertexes]
+            figura.rotate(self._angles)
 
             # drawing lines between connected points
             for edge in figura.edges:
             
-                start = self._PointLocation(Rotated[edge[0]])
-                end = self._PointLocation(Rotated[edge[1]])
+                start = self._PointLocation(figura.vertexes[edge[0]])
+                end = self._PointLocation(figura.vertexes[edge[1]])
 
                 self._DrawLine(Buffer, start, end)
         
@@ -86,8 +87,6 @@ class Engine:
     
             time.sleep(self._tick)
 
-            return Rotated
-
     def run(self, figura: Figura) -> None:
         while True:
-            figura = Figura(self.render_frame(figura), figura.edges, figura.center)
+            self.render_frame(figura)

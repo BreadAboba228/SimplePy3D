@@ -7,7 +7,7 @@ class Point3D:
         self._x, self._y, self._z = x, y, z
 
     #functions to find the new geometry of points
-    def Rotate(self, axis: Axis, angle: float, center: Self) -> Self:
+    def rotate(self, axis: Axis, angle: float, center: Self) -> Self:
         rad = angle * math.pi / 180
         match axis:
             case Axis.X:
@@ -20,27 +20,23 @@ class Point3D:
     def _rotate_x(self, rad: float, center: Self) -> Self:
         y = self._y - center.y
         z = self._z - center.z
-        NewY: float = y * math.cos(rad) - z * math.sin(rad) + center.y
-        NewZ: float = y * math.sin(rad) + z * math.cos(rad) + center.z
-        return self.__class__(self._x, NewY, NewZ)
+        new_y: float = y * math.cos(rad) - z * math.sin(rad) + center.y
+        new_z: float = y * math.sin(rad) + z * math.cos(rad) + center.z
+        return self.__class__(self._x, new_y, new_z)
     
     def _rotate_y(self, rad: float, center: Self) -> Self:
         x = self._x - center.x
         z = self._z - center.z
-        NewX = x * math.cos(rad) + z * math.sin(rad) + center.x
-        NewZ = z * math.cos(rad) - x * math.sin(rad) + center.z
-        return self.__class__(NewX, self._y, NewZ)
+        new_x = x * math.cos(rad) + z * math.sin(rad) + center.x
+        new_z = z * math.cos(rad) - x * math.sin(rad) + center.z
+        return self.__class__(new_x, self._y, new_z)
 
     def _rotate_z(self, rad: float, center: Self) -> Self:
         x = self._x - center.x
         y = self._y - center.y
-        NewX = x * math.cos(rad) - y * math.sin(rad) + center.x
-        NewY = y * math.cos(rad) + x * math.sin(rad) + center.y
-        return self.__class__(NewX, NewY, self._z)
-    
-    def rotate_all(self, angle: float, center: Self) -> Self:
-        rad = angle * math.pi / 180
-        return self._rotate_z(rad, center)._rotate_y(rad, center)._rotate_x(rad, center)
+        new_x = x * math.cos(rad) - y * math.sin(rad) + center.x
+        new_y = y * math.cos(rad) + x * math.sin(rad) + center.y
+        return self.__class__(new_x, new_y, self._z)
     
     @property
     def x(self):
