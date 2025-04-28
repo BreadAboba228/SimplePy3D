@@ -25,7 +25,7 @@ from engine.engine import Engine
 
 if __name__ == "__main__":
     app = Engine()
-    cube = Cube(center=Point3D(0, 0, 0), edge_length=3)
+    cube = Cube(center=Point3D(0, 0, 0), edge_lenth=3)
     app.run(figure=cube)
 ```
 ### Advanced Custom Figure
@@ -105,7 +105,7 @@ if __name__ == "__main__":
 | Parameter    | Default                                     | Description          |
 | ------------ | ------------------------------------------- | -------------------- |
 | input_method | print                                       | Text output function |
-| clear_method | os.system("cls" if os == "nt" else "clear") | Text clear function  |
+| clear_method | os.system("cls" if os.name == "nt" else "clear") | Text clear function  |
 #### Methods
 
 | Method  | Paremeter | Return | Description                              |
