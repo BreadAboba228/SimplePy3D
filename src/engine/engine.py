@@ -12,21 +12,26 @@ class Engine:
                 width: int=80,
                 height: int=30,
                 interface: Interface=Interface(),
-                angles: dict[Axis, float]={Axis.X: 2, Axis.Y: 2, Axis.Z: 2}) -> None:
+                angles: dict[Axis, float]={Axis.X: 2, Axis.Y: 2, Axis.Z: 2},
+                camera: Point3D=Point3D(0, 0, 5)) -> None:
         self._angles = angles
         self._tick: float = 1 / frame_rate
         self.width = width
         self.height = height
         self._interface = interface
         self._symbol = symbol
+        self._camera = camera
+        self._min_distance = 0.1
 
         self._clear_buffer = [[' ' for _ in range(self.width)] for _ in range(self.height)]
 
     #simplified coordinate system
     def _PointLocation(self, point: Point3D, scale: int=10) -> list[int]:
+        distance = max(self._camera.z - point.z, self._min_distance)
+        z_coeff = 3 / distance
         return [
-            int(point.x * scale + self.width // 2),
-            int(point.y * scale / 2 + self.height // 2)
+            int(point.x * scale * z_coeff + self.width // 2),
+            int(point.y * scale * z_coeff / 2 + self.height // 2)
         ]
 
     #Bresenham's line algorithm
