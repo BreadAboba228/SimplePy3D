@@ -13,10 +13,8 @@ class Figura:
 
     def rotate(self, angles: dict[Axis, float]):
         for axis, angle in angles.items():
-            self._vertexes = {
-                name: vertex.rotate(axis, angle, self._center)
-                for name, vertex in self._vertexes.items()
-            }
+            for vertex in self._vertexes.values():
+                vertex.rotate(axis, angle, self._center)
 
     @property
     def vertexes(self):

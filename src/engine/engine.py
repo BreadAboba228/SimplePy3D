@@ -35,11 +35,6 @@ class Engine:
         x1, y1 = start
         x2, y2 = end
 
-        x1 = max(0, min(x1, self.width - 1))
-        y1 = max(0, min(y1, self.height - 1))
-        x2 = max(0, min(x2, self.width - 1))
-        y2 = max(0, min(y2, self.height - 1))
-
         delta_x = abs(x2 - x1)
         delta_y = abs(y2 - y1)
 
