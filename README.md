@@ -16,12 +16,6 @@ git clone https://github.com/BreadAboba228/SimplePy3D.git
 cd SimplePy3D
 ```
 ## 🚀 Quick Start
-
-### Install the library and just run it
-
-[Basic cube](https://github.com/BreadAboba228/SimplePy3D/blob/master/src/example_cube.py)
-[Advansed figura](https://github.com/BreadAboba228/SimplePy3D/blob/master/src/exam_custom_figura.py)
-
 ### Basic Cube Example
 ```python
 from geometry.cube import Cube
