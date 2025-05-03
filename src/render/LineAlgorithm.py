@@ -1,6 +1,6 @@
 def draw_line(buffer: list[list[str]], 
-               start: list[int], 
-               end: list[int],
+               start: tuple[int, int], 
+               end: tuple[int, int],
                width: int,
                height: int,
                symbol: str) -> list[list[str]]:

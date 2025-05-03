@@ -16,6 +16,7 @@ git clone https://github.com/BreadAboba228/SimplePy3D.git
 cd SimplePy3D
 ```
 ## 🚀 Quick Start
+
 ### Basic Cube Example
 ```python
 from geometry.cube import Cube
