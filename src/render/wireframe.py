@@ -10,7 +10,7 @@ def render_frame(figura: Figura,
                  height: int,
                  width: int,
                  symbol: str,
-                 camera: Point3D):
+                 camera: Point3D) -> None:
 
     figura.rotate(angles)
 

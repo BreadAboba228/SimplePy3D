@@ -38,13 +38,13 @@ class Point3D:
         self._y = y * math.cos(rad) + x * math.sin(rad) + center.y
     
     @property
-    def x(self):
+    def x(self) -> float:
         return self._x
     
     @property
-    def y(self):
+    def y(self) -> float:
         return self._y
     
     @property
-    def z(self):
+    def z(self) -> float:
         return self._z

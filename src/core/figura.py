@@ -11,19 +11,19 @@ class Figura:
         self._edges: list[tuple[str | int, str | int]] = edges
         self._center: Point3D = center
 
-    def rotate(self, angles: dict[Axis, float]):
+    def rotate(self, angles: dict[Axis, float]) -> None:
         for axis, angle in angles.items():
             for vertex in self._vertexes.values():
                 vertex.rotate(axis, angle, self._center)
 
     @property
-    def vertexes(self):
+    def vertexes(self) -> dict[str | int, Point3D]:
         return self._vertexes
     
     @property
-    def edges(self):
+    def edges(self) -> list[tuple[str | int, str | int]]:
         return self._edges
     
     @property
-    def center(self):
+    def center(self) -> Point3D:
         return self._center
